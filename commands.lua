@@ -8,7 +8,7 @@ if custom_death.tp_bones == true then
             local player = minetest.get_player_by_name(name)
             --not died once?
             local death_pos = custom_death.get_death_position(name)
-            if not next(death_pos) == 0 then 
+            if not next(death_pos) then 
                 minetest.chat_send_player(name, Colorize("#ef3b3b", "[Server] You haven't died yet"))
                 return 
             end
@@ -51,7 +51,7 @@ minetest.register_chatcommand("death_coords", {
     func = function(name, param)
         --not died once?
         local death_pos = custom_death.get_death_position(name)
-        if not next(death_pos) == 0 then 
+        if not next(death_pos) then 
             minetest.chat_send_player(name, Colorize("#ef3b3b", "[Server] You haven't died yet"))
             return 
         end
